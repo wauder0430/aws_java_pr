@@ -4,7 +4,8 @@ public class ex03 {
 		int[] score = { 60, 90, 80, 40, 70, 20, 100, 50}; 
 		int sum = 0, max = score[0], min = score[0];
 		float avg = 0;
-		
+		max = Integer.MIN_VALUE;
+		min = Integer.MAX_VALUE;
 		for(int i=0; i<score.length; i++) {
 			// รัวี
 			sum += score[i];

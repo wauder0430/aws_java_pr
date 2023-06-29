@@ -15,11 +15,11 @@ public class Person {
 		System.out.println("나누기 : " + result);
 		
 		int sum = 0;
-		sum = cal.SumAll(100);
+		sum = cal.SumAll(1000);
 		System.out.println("max까지 더하기: " + sum);
-		sum = cal.SumOdd(5);
+		sum = cal.SumOdd(1000);
 		System.out.println("max까지 홀수 더하기: " + sum);
-		sum = cal.SumEven(999);
+		sum = cal.SumEven(1000);
 		System.out.println("max까지 짝수 더하기: " + sum);
 	}
 

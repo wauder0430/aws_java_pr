@@ -3,9 +3,9 @@ import java.util.Scanner;
 // 객체를 이용한 bingo
 public class BingoGame {
 	// 필드 선언부
-	private int life; // 게임 횟수
-	private int answer; // 게임 정답
-	private Scanner scn; // 입력을 받는 스캐너 개첵 참조변수
+	private int life; 		// 게임 횟수
+	private int answer; 	// 게임 정답
+	private Scanner scn; 	// 입력을 받는 스캐너 개첵 참조변수
 	
 	private void start(int life) { // 게임을 시작하는 메소드
 		this.life = life; // 게임 횟수를 생성

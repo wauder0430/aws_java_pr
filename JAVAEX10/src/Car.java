@@ -20,26 +20,26 @@ public class Car {
 		System.out.println("Car의 기본생성자가 호출되었습니다.");
 	}
 	Car(String name, String color){
+		this(name, color, 100, 0, "");
 		System.out.println("Car의 변형생성자가 호출되었습니다.");
-		this.name = name;
-		this.color = color;
-		gas = 100;
-		speed = 0;
-		MAX_speed = 100;
-		f_L = new Tire();
-		f_R = new Tire();
-		r_L = new Tire();
-		r_R = new Tire();
+		
 	}
 	Car(String name, String color, int MAX_speed, int inch, String company){
 		System.out.println("Car의 변형2생성자가 호출되었습니다.");
 		this.name = name;
 		this.color = color;
 		this.MAX_speed = MAX_speed;
+		if( inch == 0 || company.equals("")) {
+			f_L = new Tire();
+			f_R = new Tire();
+			r_L = new Tire();
+			r_R = new Tire();
+		} else { 
 		f_L = new Tire( inch, company);
 		f_R = new Tire( inch, company);
 		r_L = new Tire( inch, company);
 		r_R = new Tire( inch, company);
+		}
 	}
 	Car(String name, String color, int MAX_speed, Tire tire){
 		System.out.println("Tire 객체를 입력받는 Car생성자");

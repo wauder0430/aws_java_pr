@@ -10,16 +10,27 @@ public class Circle {
 		this.radious = radious;
 	}
 	
+	public double getR() {
+		return this.radious;
+	}
 	// 둘레를 구하는 메소드
 	public double getRound() {
 		double result = 0.0;
+		if(getR() > 0) {
 		result = 2 * PI * radious;
+		} else {
+			return -1;
+		}
 		return result;
 	}
 	// 넓이를 구하는 메소드
 	public double getArea() {
 		double result = 0.0;
+		if(getR() > 0) {
 		result = PI * radious * radious;
+		} else {
+			return -1;
+		}
 		return result;
 	}
 	

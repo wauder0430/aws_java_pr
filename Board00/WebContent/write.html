@@ -13,22 +13,6 @@
 			ul		{ margin:0; }
 		</style>
 		<script>
-			window.onload = function() {
-				let num = 32;
-				let list = document.querySelector(".list");
-				for( let i = 0; i < 10; i++ )
-				{
-					let item = document.createElement("tr");
-					item.innerHTML = `<td style="text-align:right">${num-i}</td>
-					<td><a href="view.html">자바 학습 자료</a>
-					<span style="color:orangered;">(12)</span>
-					</td>
-					<td style="text-align:center">2023. 06. 30</td>
-					<td style="text-align:center">홍길동</td>
-					<td style="text-align:right">10</td>`;
-					list.appendChild(item);
-				}
-			}
 		</script>
 	</head>
 	<body>
@@ -61,45 +45,60 @@
 				</td>
 				<td style="background-color:white;">
 		<!-- section 영역 시작 --------------------------------------------------------------------------------- -->
+				<form action="writeOk.html" method="post">
 					<section>
 		<!-- section 내부 header 영역 시작 --------------------------------------------------------------------- -->
 						<header>
-							<div style="font-size:1.2rem;font-weight:bold;">자바 학습 게시판</div>
-							<div style="width:100%; text-align:right;">
-								<a href="write.html" class="btn btn-warning btn-sm">글쓰기</a>
-							</div>
+							<div style="font-size:1.2rem;font-weight:bold;">글쓰기</div>
+							<br>
 						</header>
 		<!-- section 내부 header 영역 종료 --------------------------------------------------------------------- -->
 		<!-- section 내부 section 영역 시작 -------------------------------------------------------------------- -->
 						<section>
-							<table class="table table-striped">
-								<thead>
-									<tr>
-										<th>번호</th>
-										<th>제목</th>
-										<th>작성일</th>
-										<th>작성자</th>
-										<th>조회수</th>
-									</tr>
-								</thead>
-								<tbody class="list">
-								<!-- 게시물 목록 자리 -->
-								</tbody>
-							</table>
+						<table>
+							<tr>
+								<td style="width:6rem" name="title">제목</td>
+								<td><input type="text"></td>
+							</tr>
+							<tr>
+								<td>게시판 구분</td>
+								<td>
+									<label>자바 학습 게시판</label><input type="radio" name="boardType" value="jv"></label><br>
+									<label>HTML 학습 게시판<input type="radio" name="boardType" value="h5"></label><br>
+									<label>CSS 학습 게시판<input type="radio" name="boardType" value="cs"></label><br>
+									<label>JS 학습 게시판<input type="radio" name="boardType" value="js"></label><br>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									내용
+								</td>
+								<td>
+									<textarea name="contents" rows="5" cols="60"> </textarea>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									첨부파일
+								</td>
+								<td>
+									<input type="file" name="attach"> </textarea>
+								</td>
+							</tr>
+						</table>
 						</section>
 		<!-- section 내부 section 영역 종료 -------------------------------------------------------------------- -->
 		<!-- section 내부 footer 영역 시작 --------------------------------------------------------------------- -->
 						<footer>
-							<ul class="pagination justify-content-center">
-								<li class="page-item"><a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-								<li class="page-item"><a class="page-link" href="#">1</a></li>
-								<li class="page-item"><a class="page-link" href="#">2</a></li>
-								<li class="page-item"><a class="page-link" href="#">3</a></li>
-								<li class="page-item"><a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
-							</ul>
+							<br>
+							<div id="divBtn" align=center>
+								<button type=submit class="btn btn-outline-secondary btn-sm">가입하기</button>
+								<button type=button onclick="location.href='index.html';" class="btn btn-outline-secondary btn-sm">취소</button>
+							</div>
 						</footer>
 		<!-- section 내부 footer 영역 종료 --------------------------------------------------------------------- -->
 					</section>
+				</form>
 		<!-- section 영역 종료 --------------------------------------------------------------------------------- -->
 				</td>
 			</tr>

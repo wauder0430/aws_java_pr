@@ -13,22 +13,6 @@
 			ul		{ margin:0; }
 		</style>
 		<script>
-			window.onload = function() {
-				let num = 32;
-				let list = document.querySelector(".list");
-				for( let i = 0; i < 10; i++ )
-				{
-					let item = document.createElement("tr");
-					item.innerHTML = `<td style="text-align:right">${num-i}</td>
-					<td><a href="view.html">자바 학습 자료</a>
-					<span style="color:orangered;">(12)</span>
-					</td>
-					<td style="text-align:center">2023. 06. 30</td>
-					<td style="text-align:center">홍길동</td>
-					<td style="text-align:right">10</td>`;
-					list.appendChild(item);
-				}
-			}
 		</script>
 	</head>
 	<body>
@@ -61,45 +45,63 @@
 				</td>
 				<td style="background-color:white;">
 		<!-- section 영역 시작 --------------------------------------------------------------------------------- -->
+				<form action="joinOk.html" method="get">
 					<section>
 		<!-- section 내부 header 영역 시작 --------------------------------------------------------------------- -->
 						<header>
-							<div style="font-size:1.2rem;font-weight:bold;">자바 학습 게시판</div>
-							<div style="width:100%; text-align:right;">
-								<a href="write.html" class="btn btn-warning btn-sm">글쓰기</a>
-							</div>
+							<div style="font-size:1.2rem;font-weight:bold;">회원가입</div>
+							<br>
 						</header>
 		<!-- section 내부 header 영역 종료 --------------------------------------------------------------------- -->
 		<!-- section 내부 section 영역 시작 -------------------------------------------------------------------- -->
 						<section>
-							<table class="table table-striped">
-								<thead>
-									<tr>
-										<th>번호</th>
-										<th>제목</th>
-										<th>작성일</th>
-										<th>작성자</th>
-										<th>조회수</th>
-									</tr>
-								</thead>
-								<tbody class="list">
-								<!-- 게시물 목록 자리 -->
-								</tbody>
-							</table>
+								<div id="divId" align=center>
+									<input type="text" name="userID" id="userID" placeholder="아이디" maxlength="15">
+								</div>
+								<div id="divPass" align=center>
+									<input type="password" name="userPW" id="userPW" placeholder="비밀번호" maxlength="20" ><br>
+									<input type="password" id="pwc" placeholder="비밀번호 확인" maxlength="20">
+								</div>
+								<div id="divName" align=center>
+									<input type="text" name="userName" id="userName" placeholder="이름" maxlength="10">
+								</div>
+								<div id="divGender" align=center>
+									<label><input type="radio" value="m" name="gender">남성</label>
+                        			<label><input type="radio" value="f" name="gender">여성</label>
+								</div>
+								
+								<div id="divHobby" align=center>취미
+									<select name="hobby" >
+			                            <option value="01">낚시</option>
+			                            <option value="02">여행</option>
+			                            <option value="03">사진</option>
+			                            <option value="04">영화</option>
+			                            <option value="05">음악</option>
+									</select>
+									<br>
+									<label>
+										 관심분야
+										<label><input type="checkbox" name="inter" value="01">C</label>&nbsp
+										<label><input type="checkbox" name="inter" value="02">C++</label>&nbsp
+										<label><input type="checkbox" name="inter" value="03">C#</label>&nbsp	
+										<label><input type="checkbox" name="inter" value="04">JAVA</label>&nbsp
+										<label><input type="checkbox" name="inter" value="05">Python</label>
+									</label>
+								</div>
+								<div id="divBtn" align=center>
+									<button type=submit class="btn btn-outline-secondary btn-sm" >가입하기</button>
+									<button type=button onclick="location.href='index.html';" class="btn btn-outline-secondary btn-sm">취소</button>
+								</div>
+							
 						</section>
 		<!-- section 내부 section 영역 종료 -------------------------------------------------------------------- -->
 		<!-- section 내부 footer 영역 시작 --------------------------------------------------------------------- -->
 						<footer>
-							<ul class="pagination justify-content-center">
-								<li class="page-item"><a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-								<li class="page-item"><a class="page-link" href="#">1</a></li>
-								<li class="page-item"><a class="page-link" href="#">2</a></li>
-								<li class="page-item"><a class="page-link" href="#">3</a></li>
-								<li class="page-item"><a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
-							</ul>
+							
 						</footer>
 		<!-- section 내부 footer 영역 종료 --------------------------------------------------------------------- -->
 					</section>
+				</form>
 		<!-- section 영역 종료 --------------------------------------------------------------------------------- -->
 				</td>
 			</tr>

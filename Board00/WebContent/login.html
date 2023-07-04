@@ -12,8 +12,6 @@
 			.footer	{ height : 3rem; text-align : right; vertical-align : bottom; }
 			ul		{ margin:0; }
 		</style>
-		<script>
-		</script>
 	</head>
 	<body>
 		<!-- header  영역 시작 --------------------------------------------------------------------------------- -->
@@ -45,39 +43,45 @@
 				</td>
 				<td style="background-color:white;">
 		<!-- section 영역 시작 --------------------------------------------------------------------------------- -->
-				<form action="loingOk.html" method="get">
 					<section>
 		<!-- section 내부 header 영역 시작 --------------------------------------------------------------------- -->
 						<header>
-							<div style="font-size:1.2rem;font-weight:bold;">로그인</div>
-							<br>
+							<div style="font-size:1.2rem;font-weight:bold; color: red;">※ 로그인 ※</div>
 						</header>
 		<!-- section 내부 header 영역 종료 --------------------------------------------------------------------- -->
 		<!-- section 내부 section 영역 시작 -------------------------------------------------------------------- -->
+						<form action="loginOk.html" method="get" id="login">
 						<section>
-								<div id="divId" align=center>
-									<input type="text" name="userID" id="userID" placeholder="아이디" maxlength="15">
-								</div>
-								<div id="divPass" align=center>
-									<input type="password" name="userPW" id="userPW" placeholder="비밀번호" maxlength="20" ><br>
-									
-								</div>
-								
-								
-							
+							<table class="table table-bordered">
+								<tr>
+									<td style="width: 120px;">
+										ID
+									</td>
+									<td>
+										<input type="text" name="userID" id="userID">
+									</td>
+								</tr>
+								<tr>
+									<td>
+										비밀번호
+									</td>
+									<td>
+										<input type="password" name="userPW" id="userPW">
+									</td>
+								</tr>
+							</table>
 						</section>
 		<!-- section 내부 section 영역 종료 -------------------------------------------------------------------- -->
 		<!-- section 내부 footer 영역 시작 --------------------------------------------------------------------- -->
 						<footer>
-							<br>
-							<div id="divBtn" align=center>
-								<button type=submit class="btn btn-outline-secondary btn-sm">로그인</button>
-								<button type=reset class="btn btn-outline-secondary btn-sm">취소</button>
+							<div style="text-align:center;">
+								<input type="submit" value="로그인하기">
+								<input type="reset" value="취소">
 							</div>
 						</footer>
+						</form>
 		<!-- section 내부 footer 영역 종료 --------------------------------------------------------------------- -->
 					</section>
-				</form>
 		<!-- section 영역 종료 --------------------------------------------------------------------------------- -->
 				</td>
 			</tr>

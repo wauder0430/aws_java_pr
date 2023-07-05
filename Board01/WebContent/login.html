@@ -12,24 +12,36 @@
 			.footer	{ height : 3rem; text-align : right; vertical-align : bottom; }
 			ul		{ margin:0; }
 		</style>
-		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 		<script>
-			function loginSubmit(){
-				let uID = $("#userID");
-				if(uID.val() == ""){
-					alert("아이디를 입력하세요.");
-					uID.focus();
-					return;
-				}
-				let uPW = $("#userPW");
-				if(uPW.val() == ""){
-					alert("비밀번호를 입력하세요.");
-					uPW.focus();
-					return;
-				}
-				alert("로그인이 성공 확인용");
-				return;
+			// 페이지가 로드되면, 아이디 입력 폼으로 커서를 이동한다
+			window.onload = function()
+			{
+/* 				document.querySelector("#userID").focus(); */
+				document.login.userID.focus();
 			}
+			// Dosubmit() 함수가 호출되면, 아이디와 비번 입력값이 있는지 확인하고, 있으면 submit을 요청한다
+			function DoSubmit()
+			{	// 아이디 입력폼 객체를 찾고
+				let uID = document.querySelector("#userID");
+				// 객체의 값을 가져와서 ""인지 확인
+				if( uID.value == "" )
+				{	// 값이 ""이면 아이디 입력폼으로 커서 이동
+					alert("아이디를 입력하세요");
+					uID.focus();
+					return false;
+				} // 2. 값이 입력되어있으면 비번확인으로 넘어감
+				// 비번 입력폼의 객체를 찾고
+				let uPW = document.querySelector("#userPW");
+				if( uPW.value == "" )
+				{	// 1. 값이 ""이면 비번 입력폼으로 커서 이동
+					alert("비번을 입력하세요");
+					uPW.focus();
+					return false;
+				}
+				// 2. 값이 있으면 form을 submit시킴
+				return true;
+			}
+			
 		</script>
 	</head>
 	<body>
@@ -69,7 +81,7 @@
 						</header>
 		<!-- section 내부 header 영역 종료 --------------------------------------------------------------------- -->
 		<!-- section 내부 section 영역 시작 -------------------------------------------------------------------- -->
-						<form action="loginOk.html" method="get" id="login">
+						<form action="loginOk.html" method="get" id="login" name="login" onsubmit="return DoSubmit();">
 						<section>
 							<table class="table table-bordered">
 								<tr>
@@ -94,7 +106,6 @@
 		<!-- section 내부 footer 영역 시작 --------------------------------------------------------------------- -->
 						<footer>
 							<div style="text-align:center;">
-								<input type="button" value="로그인하기(확인용)" onclick="loginSubmit();">
 								<input type="submit" value="로그인하기">
 								<input type="reset" value="취소">
 							</div>

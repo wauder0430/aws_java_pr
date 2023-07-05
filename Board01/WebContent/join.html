@@ -12,64 +12,18 @@
 			.footer	{ height : 3rem; text-align : right; vertical-align : bottom; }
 			ul		{ margin:0; }
 		</style>
-		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+		<script src="./js/join.js"></script>
+		<script src="./js/idcheck.js"></script>
 		<script>
-			window.onload = function(){
+/* 			window.onload = function()
+			{
 				document.querySelector("#userID").focus();
-				//$("#userID").focus();
 			}
-			let flag = false;
-			function DoSubmit(){
-				/*alert("DoSubmit-Call");*/
-				// 1. 아이디가 입력됐는지
-				//console.log(document.userID.value);
-				console.log(document.querySelector("#userID").value);
-				console.log($("#userID").val());
-				let uID = document.querySelector("#userID");
-				if(uID.value ==""){
-					alert("아이디를 입력하세요.");
-					uID.focus();
-					retrun;
-				}
-				
-				//document.join.userID.value
-				// 2. 비번이 입력됐는지
-				
-				let uPW = document.querySelector("#userPW");
-				if(uPW.value == ""){
-					alert("비밀번호를 입력하세요.");
-					uPW.focus();
-					return;
-				}
-				
-				// 2-1. 비번이 입력되어있다면, 비번 확인이 입력되어있는가
-				let uPWC = document.querySelector("#pwc");
-				if(pwc.value == ""){
-					alert("비밀번호확인을 입력하세요.");
-					uPWC.focus();
-					return;
-				}
-				if(uPW.value != uPWC.value){
-					alert("비밀번호와 비밀번호확인이 다릅니다.");
-					uPW.value="";
-					uPWC.value="";
-					uPW.focus();
-					return;s
-				}
-				
-				// 3. 이름이 입력됐는지
-				let uName = $("#userName");
-				if(uName.val() == ""){
-					alert("이름을 입력하세요.");
-					uName.focus();
-					return;
-				}
-				
-				// 4. 아이디 중복체크를 했는가
-				// 5. 자동가입방지 코드를 입력 했는가
-				alert("회원가입 성공 확인용");
-				return;
-			}
+ */
+			$(document).ready(function(){
+				$("#userID").focus();
+			});
 		</script>
 	</head>
 	<body>
@@ -109,7 +63,7 @@
 						</header>
 		<!-- section 내부 header 영역 종료 --------------------------------------------------------------------- -->
 		<!-- section 내부 section 영역 시작 -------------------------------------------------------------------- -->
-						<form action="joinOk.html" method="get" id="join">
+						<form action="joinOk.html" method="get" id="join" name="join" onsubmit="return DoSubmit();">
 						<section>
 							<table class="table table-bordered">
 								<tr>
@@ -117,7 +71,12 @@
 										ID
 									</td>
 									<td>
-										<input type="text" name="userID" id="userID"> &nbsp;<a href="idcheck.html" class="btn btn-warning  btn-sm">중복체크</a>
+										<!-- <input type="text" name="userID" id="userID"> &nbsp;<a href="idcheck.html" class="btn btn-warning  btn-sm">중복체크</a> -->
+										<input type="text" name="userID" id="userID">
+										 &nbsp;
+										 <input type="button" class="btn btn-warning  btn-sm" onclick="idcheck();" value="중복체크">
+										 &nbsp;
+										<span class="msg_area">메세지 출력 영역입니다.</span>
 									</td>
 								</tr>
 								<tr>

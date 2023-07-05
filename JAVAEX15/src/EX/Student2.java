@@ -20,10 +20,10 @@ public class Student2
 		String result ="";
 		for( int item : arry )
 		{
-			result = ""+ item + ",";
+			result += " "+ item + ",";
 		}
 		// 맨 마지막 ,를 제거
-		result = result.substring(0, result.length() -1);
+		result = result.substring(1, result.length() -1);
 		return result;
 	}
 	

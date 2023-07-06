@@ -49,6 +49,16 @@ public class Student2
 		this.setScore_avg();		// 각 과목의 평균 점수를 구해서 셋팅
 	}
 	
+	/*
+	 * public void setArray(int[] arry, String subject) { if( kor_scores == null ||
+	 * kor_scores.length == 0 ) { System.out.println( subject +"가 올바르지 않습니다.");
+	 * }else { System.out.println(subject+" 점수를 입력합니다."); switch(subject) { case
+	 * "국어" : this.kor_scores = arry; break; case "영어" : this.kor_scores = arry;
+	 * break; case "수학" : // this.kor_scores = ; break; }
+	 * 
+	 * } }
+	 */
+	
 	public void setKor_scores(int[] kor_scores)
 	{
 		if( kor_scores == null || kor_scores.length == 0 )

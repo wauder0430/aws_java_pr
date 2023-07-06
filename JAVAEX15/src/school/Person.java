@@ -18,7 +18,9 @@ public class Person {
 			int age, 		//나이
 			char gender, 	//성별
 			String addr) 	//주소
+	
 	{
+		
 		this.setName(name);
 		this.setAge(age);
 		this.setGender(gender);

@@ -21,9 +21,25 @@ public class User {
 			rc = new RadioRemote();
 		}
 		
+		Remocon.Test();// static 메소드
+		rc.makeRC();	// default 메소드
 		rc.turnOn();
 		rc.turnOff();
 		
+		int rc_type = Remocon.TYPE_AUDIO;
+		switch(rc_type) {
+		case Remocon.TYPE_TV:
+			rc = new TVremote();
+			break;
+		case Remocon.TYPE_RADIO:
+			rc = new RadioRemote();
+			break;
+		case Remocon.TYPE_AUDIO:
+			rc = new AudioRemote();
+			break;
+		}
+		rc.turnOn();
+		rc.turnOff();
 	}
 
 }

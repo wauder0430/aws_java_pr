@@ -22,15 +22,14 @@ public class App {
 		int money;
 		while(true) {
 			try {
-				money = sc.nextInt();
+				money = Integer.parseInt(sc.nextLine());
 				break;
 			} catch(Exception e) {
-				sc.nextLine();
+				//sc.nextLine();
 				System.out.println("숫자를 입력하세요");
 			}
 			
 		}
-		sc.nextLine();
 		// 입력값 확인
 		System.out.println("계좌번호 : " + aNo);
 		System.out.println("명의자 : " + oName);

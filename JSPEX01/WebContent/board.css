@@ -1,0 +1,19 @@
+@charset "EUC-KR";
+body {
+	background-color: gray;
+}
+.main {
+	width : 900px;
+	margin : auto;
+}
+th {
+	text-align : center;
+}
+.footer {
+	height : 3rem;
+	text-align : right;
+	vertical-align : bottom;
+}
+ul {
+	margin:0;
+}

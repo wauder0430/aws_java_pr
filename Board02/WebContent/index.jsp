@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
-<%@ include file="./include/header1.jsp" %>
-<%@ include file="./include/header2.jsp" %>
+<%@ include file="./include/head.jsp" %>
+<%@ include file="./include/header.jsp" %>
 <%@ include file="./include/nav.jsp" %>
 		<!-- section 영역 시작 --------------------------------------------------------------------------------- -->
 					<section>
@@ -25,9 +25,9 @@
 									</tr>
 								</thead>
 								<tbody class="list">
-								<!-- 게시물 목록 자리 -->
 								<%
-								for(int i=32; i>22; i--){
+								for(int i = 32; i > 22; i--)
+								{
 									%>
 									<tr>
 										<td style="text-align:right"><%= i %></td>
@@ -38,7 +38,7 @@
 										<td style="text-align:center">2023. 06. 30</td>
 										<td style="text-align:center">홍길동</td>
 										<td style="text-align:right">10</td>
-										<tr>
+									</tr>
 									<%
 								}
 								%>

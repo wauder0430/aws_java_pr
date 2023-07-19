@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
-<%@ include file="./include/header1.jsp" %>
+<%@ include file="./include/head.jsp" %>
 		<script src="https://code.jquery.com/jquery-latest.min.js"></script>
 		<script src="./js/join.js"></script>
 		<script src="./js/idcheck.js"></script>
@@ -13,7 +13,7 @@
 				$("#userID").focus();
 			});
 		</script>
-<%@ include file="./include/header2.jsp" %>
+<%@ include file="./include/header.jsp" %>
 <%@ include file="./include/nav.jsp" %>
 		<!-- section 영역 시작 --------------------------------------------------------------------------------- -->
 					<section>
@@ -23,7 +23,8 @@
 						</header>
 		<!-- section 내부 header 영역 종료 --------------------------------------------------------------------- -->
 		<!-- section 내부 section 영역 시작 -------------------------------------------------------------------- -->
-						<form action="joinOk.jsp" method="get" id="join" name="join" onsubmit="return DoSubmit();">
+<!-- 						<form action="joinOk.jsp" method="get" id="join" name="join" onsubmit="return DoSubmit();"> -->
+						<form action="joinOk.jsp" method="post" id="join" name="join" onsubmit="return DoSubmit();">
 						<section>
 							<table class="table table-bordered">
 								<tr>
@@ -126,7 +127,4 @@
 		<!-- section 내부 footer 영역 종료 --------------------------------------------------------------------- -->
 					</section>
 		<!-- section 영역 종료 --------------------------------------------------------------------------------- -->
-				</td>
-			</tr>
-		</table>
 <%@ include file="./include/footer.jsp" %>

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
-<%@ include file="./include/header1.jsp" %>
-<%@ include file="./include/header2.jsp" %>
+<%@ include file="./include/head.jsp" %>
+<%@ include file="./include/header.jsp" %>
 <%@ include file="./include/nav.jsp" %>
 		<!-- section 영역 시작 --------------------------------------------------------------------------------- -->
 					<section>
@@ -86,7 +86,7 @@
 						<br>
 		<!-- section 내부 footer 영역 종료 --------------------------------------------------------------------- -->
 		<!-- section 내부 section_reply 영역 시작 -------------------------------------------------------------------- -->
-						<form action="replyOk.jsp" method="post" id="reply">
+						<form action="replyOk.html" method="post" id="reply">
 						<section>
 							<table class="table table-bordered">
 								<tr>
@@ -155,4 +155,4 @@
 		<!-- section 내부 section 영역 종료 -------------------------------------------------------------------- -->
 					</section>
 		<!-- section 영역 종료 --------------------------------------------------------------------------------- -->
-<%@ include file="./include/footer.jsp" %>				
+<%@ include file="./include/footer.jsp" %>

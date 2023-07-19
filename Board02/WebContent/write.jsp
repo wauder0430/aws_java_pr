@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
-<%@ include file="./include/header1.jsp" %>
-<%@ include file="./include/header2.jsp" %>
+<%@ include file="./include/head.jsp" %>
+<%@ include file="./include/header.jsp" %>
 <%@ include file="./include/nav.jsp" %>
 		<!-- section 영역 시작 --------------------------------------------------------------------------------- -->
 					<section>

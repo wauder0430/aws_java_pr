@@ -1,0 +1,11 @@
+MySQL 접속 방법
+mysql -u [계정이름] -p [DB이름]
+-> mysql -u root -p
+
+데이터를 백업
+mysqldump -u 계정명 -p 백업할 데이터베이스 이름 > 백업파일이름
+mysqldump -u root -p ezen > backup.sql
+
+데이터를 백업에서 복원
+mysql -u root -p 데이터베이스 이름 < 백업파일이름
+mysql -u root -p ezen < backup.sql

@@ -44,3 +44,6 @@ create table reply(
     foreign key(bNo) references board(bNo),
     foreign key(uID) references account(uID)
 ) comment "´ñ±Û¸ñ·Ï";
+
+insert into account (uID, uPW, uName, uGender, uHobby) values ("hong", "1q2w3e4r", "È«±æµ¿", "M", "2");
+insert into board ()

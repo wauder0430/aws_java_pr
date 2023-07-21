@@ -10,3 +10,40 @@ create table userList(
     constraint checkState check (userState = 'U' || userState = 'R'),
     usersignDate datetime
 );
+
+create table writeList(
+    writeNo int not null primary key,
+    writeTitle varchar(200),
+    writeDate datetime,
+    writeNote text,
+    writeRead int unsigned,
+    writeKind varchar(2) not null,
+    userID varchar(50),
+    foreign key(userID)
+    references userList(userID) on update cascade,
+    constraint checkWriteKind check (writeKind = 'JV' ||
+    writeKind = 'HS' ||  
+    writeKind = 'CS' || 
+    writeKind = 'JS')
+);
+
+create table commentList(
+    commentNo int unsigned not null primary key,
+    commentNote text,
+    commentDate datetime,
+    writeNo int,
+    foreign key(writeNo)
+    references writeList(writeNo) on update cascade,
+    userID varchar(50),
+    foreign key(userID)
+    references userList(userID) on update cascade
+);
+
+create table favoriteList(
+    favNo int unsigned not null primary key,
+    favorite varbinary(2),
+    userID varchar(50),
+    foreign key(userID)
+    references userList(userID) on update cascade,
+    constraint checkfav check (favorite >= 1 || favorite <= 5)
+);

@@ -8,4 +8,4 @@ create table memo(
 );
 
 insert into memo (mTitle, mNote)
-    values ('첫번째 메모', '메모 내용입니다.');
+    values ('메모 제목입니다.', '메모 내용입니다.');

@@ -5,8 +5,9 @@
 	String no = request.getParameter("no");
 	if( no == null || no.equals("") )
 	{	// 유효성 검사
-		stmt.close();
-		conn.close();
+//		stmt.close();
+//		conn.close();
+		db.DBClose();
 		response.sendRedirect("index.jsp");
 		return;
 	}
@@ -16,21 +17,29 @@
 	sql += " where mNo = " + no ;
 	
 	// SQL 구문을 실행
-	ResultSet result = stmt.executeQuery(sql);
+//	ResultSet result = stmt.executeQuery(sql);
+	db.OpenQuery(sql);
 	
 	// 조회 결과가 있는지 확인
-	if( result.next() == false )
+//	if( result.next() == false )
+	if( db.GetNext() == false )
 	{
-		stmt.close();
-		conn.close();
+//		stmt.close();
+//		conn.close();
+		db.CloseQuery();
+		db.DBClose();
 		response.sendRedirect("index.jsp");
 		return;
 	}
 	
 	// result 객체로부터 컬럼이름으로 값을 받아옴
-	String title = result.getString("mTitle");
-	String note = result.getString("mNote");
-	String date = result.getString("wDate");
+//	String title = result.getString("mTitle");
+//	String note  = result.getString("mNote");
+//	String date  = result.getString("wDate");
+	String title = db.GetValue("mTitle");
+	String note  = db.GetValue("mNote");
+	String date  = db.GetValue("wDate");
+	db.CloseQuery();
 	
 %>
 <!DOCTYPE html>

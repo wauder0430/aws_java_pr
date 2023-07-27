@@ -27,12 +27,17 @@
 			<%
 			// SQL 구문을 작성한다
 			String sql = " select mNo, mTitle, wDate from memo ";
-			ResultSet result = stmt.executeQuery(sql);
-			while(result.next() == true)
+//			ResultSet result = stmt.executeQuery(sql);
+			db.OpenQuery(sql);
+//			while(result.next() == true)
+			while(db.GetNext() == true)
 			{	// 결과로부터 '컬럼 이름'으로 '컬럼값'을 불러온다
-				String mNo	  = result.getString("mNO");
-				String mTitle  = result.getString("mTitle");
-				String wDate  = result.getString("wDate");
+//				String mNo	  = result.getString("mNO");
+//				String mTitle = result.getString("mTitle");
+//				String wDate  = result.getString("wDate");
+				String mNo	  = db.GetValue("mNO");
+				String mTitle = db.GetValue("mTitle");
+				String wDate  = db.GetValue("wDate");
 				wDate = wDate.split(" ")[0];
 				// 데이터 출력해보기
 				System.out.println("mNo : "		+ mNo		);
@@ -49,6 +54,7 @@
 					</td>
 				</tr> <%
 			}
+			db.CloseQuery();
 			%>
 <!-- 			<tr>
 				<td>2번</td>

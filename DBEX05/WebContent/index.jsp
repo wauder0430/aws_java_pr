@@ -50,7 +50,7 @@
 				</tr> <%
 			}
 			%>
-<!-- 			<tr>
+<!-- 		<tr>
 				<td>2¹ø</td>
 				<td>2023. 7. 24</td>
 				<td><a href="view.jsp?no=5"><button>º¸±â</button></a></td>

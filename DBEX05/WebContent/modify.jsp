@@ -49,6 +49,7 @@
 			<a href="index.jsp">목록으로</a>
 			<input type="submit" value="메모수정">
 			<a href="delete.jsp?no=<%= no %>">메모삭제</a>
+			<a href="view.jsp?no=<%= no %>">취소</a>
 		</form>
 	</body>
 </html>

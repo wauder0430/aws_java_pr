@@ -1,5 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%@ include file="./include/head.jsp" %>
+<%
+// SQL 구문을 작성한다
+String sql = " select mNo, mTitle, wDate from memo ";
+db.OpenQuery(sql);
+// 메모 객체 목록 생성
+ArrayList<MemoVO> list = new ArrayList<MemoVO>();
+
+while(db.GetNext() == true)
+{	MemoVO vo = new MemoVO();	// 새 객체를 생성
+	// 새 객체에 데이터를 넣음
+	vo.setmNo(db.GetValue("mNO"));
+	vo.setmTitle(db.GetValue("mTitle"));
+	vo.setwDate(db.GetValue("wDate").split(" ")[0]);
+	list.add(vo);	// 리스트에 객체를 넣음
+}
+db.CloseQuery();
+%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -25,27 +42,16 @@
 			</tr>
 			<!-- 메모 갯수에 맞춰 반복할 구간                           -->
 			<%
-			// SQL 구문을 작성한다
-			String sql = " select mNo, mTitle, wDate from memo ";
-			ResultSet result = stmt.executeQuery(sql);
-			while(result.next() == true)
-			{	// 결과로부터 '컬럼 이름'으로 '컬럼값'을 불러온다
-				String mNo	  = result.getString("mNO");
-				String mTitle  = result.getString("mTitle");
-				String wDate  = result.getString("wDate");
-				wDate = wDate.split(" ")[0];
-				// 데이터 출력해보기
-				System.out.println("mNo : "		+ mNo		);
-				System.out.println("mTitle : "	+ mTitle	);
-				System.out.println("wDate : "	+ wDate		);
+			for( MemoVO item : list )
+			{
 			%>
 				<tr>
-					<td><%= mNo %></td>
-					<td class="note"> &nbsp;<%= mTitle %></td>
-					<td><%= wDate %></td>
+					<td><%= item.getmNo() %></td>
+					<td class="note"> &nbsp;<%= item.getmTitle() %></td>
+					<td><%= item.getwDate() %></td>
 					<td>
-						<a href="view.jsp?no=<%= mNo %>"><button>보기</button></a>
-						<a href="modify.jsp?no=<%= mNo %>"><button>수정</button></a>
+						<a href="view.jsp?no=<%= item.getmNo() %>"><button>보기</button></a>
+						<a href="modify.jsp?no=<%= item.getmNo() %>"><button>수정</button></a>
 					</td>
 				</tr> <%
 			}

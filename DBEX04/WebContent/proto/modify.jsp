@@ -1,16 +1,35 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
-<%@ include file="./include/head.jsp" %>
+<%@ page import="java.sql.Connection" %>
+<%@ page import="java.sql.DriverManager" %>
+<%@ page import="java.sql.ResultSet" %>
+<%@ page import="java.sql.Statement" %>
 <%
 	// 파라메타로 수정할 메모의 번호를 받아옴 ========================================
 	String no = request.getParameter("no");
 	if( no == null || no.equals("") )
 	{	// 유효성 검사
-		stmt.close();
-		conn.close();
 		response.sendRedirect("index.jsp");
 		return;
 	}
+	// 메모 번호로 DB에서 메모의 정보를 받아옴 ======================================
+	// JDBC 드라이버를 로딩한다
+	Class.forName("com.mysql.cj.jdbc.Driver");
 
+	// DBMS에 접속하기 위한, 셋팅을 한다
+	String host = "";
+	host += "jdbc:mysql://127.0.0.1:3306/ezen";	//주소/포트/DB이름
+	host += "?useUnicode=true";					// 유니코드
+	host += "&characterEncoding=utf-8";			// 인코딩
+	host += "&serverTimezone=UTC";				// 서버시간대
+	String userID = "root";						// 사용자 계정
+	String userPW = "ezen";						// 사용자 비번
+	
+	// DBMS에 연결한다
+	Connection conn = DriverManager.getConnection(host, userID, userPW);
+	
+	// 작업 처리용 클래스 객체를 할당받는다
+	Statement stmt = conn.createStatement();
+	
 	// 메모 번호로 조회하는 SQL구문을 작성한다
 	String sql = " select * from memo ";
 	sql += " where mNo = " + no ;
@@ -32,6 +51,9 @@
 	String note = result.getString("mNote");
 	String date = result.getString("wDate");
 	
+	// DB연결을 끊음
+	stmt.close();
+	conn.close();
 %>
 <!DOCTYPE html>
 <html>
@@ -52,4 +74,3 @@
 		</form>
 	</body>
 </html>
-<%@ include file="./include/tail.jsp" %>

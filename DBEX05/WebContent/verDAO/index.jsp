@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%@ include file="./include/head.jsp" %>
+<%
+// dao를 통해 메모의 리스트를 생성한다
+//ArrayList<MemoVO> list = new ArrayList<MemoVO>();
+ArrayList<MemoVO> list = dao.List();
+%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -25,27 +30,16 @@
 			</tr>
 			<!-- 메모 갯수에 맞춰 반복할 구간                           -->
 			<%
-			// SQL 구문을 작성한다
-			String sql = " select mNo, mTitle, wDate from memo ";
-			ResultSet result = stmt.executeQuery(sql);
-			while(result.next() == true)
-			{	// 결과로부터 '컬럼 이름'으로 '컬럼값'을 불러온다
-				String mNo	  = result.getString("mNO");
-				String mTitle  = result.getString("mTitle");
-				String wDate  = result.getString("wDate");
-				wDate = wDate.split(" ")[0];
-				// 데이터 출력해보기
-				System.out.println("mNo : "		+ mNo		);
-				System.out.println("mTitle : "	+ mTitle	);
-				System.out.println("wDate : "	+ wDate		);
+			for( MemoVO item : list )
+			{
 			%>
 				<tr>
-					<td><%= mNo %></td>
-					<td class="note"> &nbsp;<%= mTitle %></td>
-					<td><%= wDate %></td>
+					<td><%= item.getmNo() %></td>
+					<td class="note"> &nbsp;<%= item.getmTitle() %></td>
+					<td><%= item.getwDate().split(" ")[0] %></td>
 					<td>
-						<a href="view.jsp?no=<%= mNo %>"><button>보기</button></a>
-						<a href="modify.jsp?no=<%= mNo %>"><button>수정</button></a>
+						<a href="view.jsp?no=<%= item.getmNo() %>"><button>보기</button></a>
+						<a href="modify.jsp?no=<%= item.getmNo() %>"><button>수정</button></a>
 					</td>
 				</tr> <%
 			}
@@ -74,4 +68,3 @@
 		</table>
 	</body>
 </html>
-<%@ include file="./include/tail.jsp" %>

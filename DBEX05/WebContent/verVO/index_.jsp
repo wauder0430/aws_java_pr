@@ -27,28 +27,29 @@
 			<%
 			// SQL 구문을 작성한다
 			String sql = " select mNo, mTitle, wDate from memo ";
-			ResultSet result = stmt.executeQuery(sql);
-			while(result.next() == true)
+			db.OpenQuery(sql);
+			while(db.GetNext() == true)
 			{	// 결과로부터 '컬럼 이름'으로 '컬럼값'을 불러온다
-				String mNo	  = result.getString("mNO");
-				String mTitle  = result.getString("mTitle");
-				String wDate  = result.getString("wDate");
-				wDate = wDate.split(" ")[0];
+				MemoVO vo = new MemoVO();
+				vo.setmNo(db.GetValue("mNO"));
+				vo.setmTitle(db.GetValue("mTitle"));
+				vo.setwDate(db.GetValue("wDate").split(" ")[0]);
 				// 데이터 출력해보기
-				System.out.println("mNo : "		+ mNo		);
-				System.out.println("mTitle : "	+ mTitle	);
-				System.out.println("wDate : "	+ wDate		);
+				System.out.println("mNo : "		+ vo.getmNo()	);
+				System.out.println("mTitle : "	+ vo.getmTitle());
+				System.out.println("wDate : "	+ vo.getwDate()	);
 			%>
 				<tr>
-					<td><%= mNo %></td>
-					<td class="note"> &nbsp;<%= mTitle %></td>
-					<td><%= wDate %></td>
+					<td><%= vo.getmNo() %></td>
+					<td class="note"> &nbsp;<%= vo.getmTitle() %></td>
+					<td><%= vo.getwDate() %></td>
 					<td>
-						<a href="view.jsp?no=<%= mNo %>"><button>보기</button></a>
-						<a href="modify.jsp?no=<%= mNo %>"><button>수정</button></a>
+						<a href="view.jsp?no=<%= vo.getmNo() %>"><button>보기</button></a>
+						<a href="modify.jsp?no=<%= vo.getmNo() %>"><button>수정</button></a>
 					</td>
 				</tr> <%
 			}
+			db.CloseQuery();
 			%>
 <!-- 			<tr>
 				<td>2번</td>

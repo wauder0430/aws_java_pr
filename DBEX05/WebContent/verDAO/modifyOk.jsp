@@ -9,26 +9,13 @@
 	String note  = request.getParameter("note");
 	if( no == null || no.equals("") || title == null || title.equals("") || note == null || note.equals("") )
 	{
-		stmt.close();
-		conn.close();
-
 		response.sendRedirect("index.jsp");
 		return;
 	}
-	
-	// update SQL 구문 작성
-	String sql = "";
-	sql += " update memo set ";
-	sql += " mTitle = '" + title + "', ";	// mTitle = title,
-	sql += " mNote = '" + note + "', ";		// mNote  = note
-	sql += " wDate = now() ";				// wDate  = now()
-	sql += " where mNo = " + no ;
-	System.out.println(sql);
-
+	// 파라메타로 받은 정보로 메모 객체 생성
+	MemoVO vo = new MemoVO(no,title,note,"");
 	// SQL 구문 실행 
-	stmt.executeUpdate(sql);
+	dao.Update(vo);
 	// 메모 번호로 view.jsp로 이동
-	stmt.close();
-	conn.close();
 	response.sendRedirect("view.jsp?no=" + no);
 %>

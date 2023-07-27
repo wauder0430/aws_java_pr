@@ -6,8 +6,9 @@
 	// 번호가 없으면 index.jsp로
 	if( no == null || no.equals("") )
 	{
-		stmt.close();
-		conn.close();
+//		stmt.close();
+//		conn.close();
+		db.DBClose();
 		response.sendRedirect("index.jsp");
 		return;
 	}
@@ -17,10 +18,12 @@
 	sql += " delete from memo where mNo = " + no ;
 //	out.println(sql);
 	// SQL 구문 실행
-	stmt.executeUpdate(sql);
+//	stmt.executeUpdate(sql);
+	db.RunSQL(sql);
 	// DB연결 종료
-	stmt.close();
-	conn.close();
+//	stmt.close();
+//	conn.close();
+	db.DBClose();
 	// 목록으로 이동
 	response.sendRedirect("index.jsp");
 %>

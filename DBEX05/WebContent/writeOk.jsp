@@ -21,7 +21,7 @@ if( title == null || title.equals("") || note == null || note.equals("") )
 String sql = " insert into memo ( mTitle, mNote ) ";
 sql += " values ( '" + title + "', '" + note + "' ) ";
 // SQL 구문을 확인한다
-System.out.println(sql);
+//System.out.println(sql);
 // SQL 구문을 실행한다
 stmt.executeUpdate(sql);
 // DB와 연결을 종료한다
